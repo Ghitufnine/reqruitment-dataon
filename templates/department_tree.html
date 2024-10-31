@@ -1,0 +1,13 @@
+{{ define "DepartmentTree" }}
+<ul>
+    {{ range . }}
+        <li>
+            <span class="toggle" onclick="toggleNode(this)">[+]</span> 
+            <strong>{{ .Code }}. {{ .Name }}</strong> ({{.ID}}) --- <a href="/departments/read?id={{ .ID }}">Edit</a> --- <a href="/departments/delete?id={{ .ID }}">Delete</a>
+            {{ if .Children }}
+                {{ template "DepartmentTree" .Children }}
+            {{ end }}
+        </li>
+    {{ end }}
+</ul>
+{{ end }}

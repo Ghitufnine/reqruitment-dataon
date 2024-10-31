@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Department Hierarchy CRUD</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <script src="/static/js/script.js" defer></script>
+</head>
+<body>
+    <h1><a href="/">Department Hierarchy</a></h1>
+    
+    <!-- Form for Create & Update -->
+    <form action="/departments/{{ if .EditDepartment.ID }}update{{ else }}create{{ end }}" method="POST">
+        <input type="hidden" name="id" id="department-id" value="{{ if .EditDepartment.ID }}{{ .EditDepartment.ID }}{{ end }}">
+        <label>Parent ID:</label>
+        <input type="number" name="parent_id" value="{{ if .EditDepartment.ParentID }}{{ .EditDepartment.ParentID }}{{ end }}">
+        <label>Name:</label>
+        <input type="text" name="name" value="{{ .EditDepartment.Name }}">
+        <label>Code:</label>
+        <input type="text" name="code" value="{{ .EditDepartment.Code }}">
+        <label>Level:</label>
+        <input type="number" name="level" value="{{ .EditDepartment.Level }}">
+        <button type="submit">{{ if .EditDepartment.ID }}Update{{ else }}Save{{ end }}</button>
+    </form>
+
+    <br><br><br>
+    <h1>Department Hierarchy</h1>
+
+    <!-- Hierarchical Tree View -->
+    <div id="department-tree">
+        {{ template "DepartmentTree" .RootDepartments }}
+    </div>
+</body>
+</html>

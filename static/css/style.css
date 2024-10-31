@@ -1,0 +1,49 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+.node {
+    cursor: pointer;
+    padding: 5px;
+}
+
+.children {
+    margin-left: 20px;
+}
+
+.hidden {
+    display: none;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+th, td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: left;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+#department-tree ul {
+    list-style-type: none;
+    margin-left: 20px;
+}
+
+#department-tree li {
+    margin: 5px 0;
+    cursor: pointer;
+}
+
+.toggle {
+    color: blue;
+    font-weight: bold;
+    margin-right: 5px;
+}
